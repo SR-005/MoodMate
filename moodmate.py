@@ -28,8 +28,8 @@ heading = ctk.CTkLabel(scroll_frame, text="MoodMate", font=font_heading, text_co
 heading.pack(pady=(30, 10))
 
 # --- Date ---
-current_date = datetime.today().strftime('%A, %d %B %Y')
-date_label = ctk.CTkLabel(scroll_frame, text=f"🗕️ {current_date}", font=font_date)
+current_date = datetime.today().strftime('%d %B %Y, %A')
+date_label = ctk.CTkLabel(scroll_frame, text=f"📅 {current_date}", font=font_date)
 date_label.pack(pady=(0, 10))
 
 # --- Welcome & Prompt ---
@@ -42,20 +42,19 @@ prompt_label.pack(pady=(10, 20))
 # --- Mood Section ---
 moods = ["😊 Happy", "😢 Sad", "😐 Neutral", "😡 Angry", "😨 Anxious"]
 mood_var = ctk.StringVar(value="")
-mood_buttons = []
 
 # WIDER mood frame
-mood_frame = ctk.CTkFrame(scroll_frame, width=700, height=400, corner_radius=20, fg_color="#222222")
+mood_frame = ctk.CTkFrame(scroll_frame, width=700, height=450, corner_radius=20, fg_color="#222222")
 
 mood_heading = ctk.CTkLabel(mood_frame, text="How are you feeling today?", font=font_normal, text_color="#CCCCCC")
 mood_heading.pack(pady=(20, 15))  # Padding top and bottom
 
-notes_label = ctk.CTkLabel(mood_frame, text="Write more about your day (optional):", font=font_small, text_color="#CCCCCC")
+notes_label = ctk.CTkLabel(mood_frame, text="Write more about your day:", font=font_small, text_color="#CCCCCC")
 notes_label.pack(pady=(10, 5))
 
 # Slightly smaller Textbox width for padding
 notes_input = ctk.CTkTextbox(mood_frame, width=580, height=100, corner_radius=10)
-notes_input.pack(pady=(0, 40))
+notes_input.pack(pady=(0, 20))
 
 # Mood Buttons Frame
 button_row = ctk.CTkFrame(mood_frame)
