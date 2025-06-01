@@ -45,6 +45,27 @@ mood_var = ctk.StringVar(value="")
 def set_mood(choice):
     mood_var.set(choice)
 
+    # Change colors based on mood
+    if "Happy" in choice:
+        mood_frame.configure(fg_color="#d4edda")  # Light green
+        mood_heading.configure(text_color="#0C3D18")
+    elif "Sad" in choice:
+        mood_frame.configure(fg_color="#f8d7da")  # Light red/pink
+        mood_heading.configure(text_color="#861420")
+    elif "Neutral" in choice:
+        mood_frame.configure(fg_color="#d6d8db")  # Light gray
+        mood_heading.configure(text_color="#3e454a")
+    elif "Angry" in choice:
+        mood_frame.configure(fg_color="#f5c6cb")  # Light red
+        mood_heading.configure(text_color="#a71d2a")
+    elif "Anxious" in choice:
+        mood_frame.configure(fg_color="#d1ecf1")  # Light blue
+        mood_heading.configure(text_color="#06515e")
+    else:
+        mood_frame.configure(fg_color="default")
+        mood_heading.configure(text_color="default")
+
+
 for index, mood in enumerate(moods):
     btn = ctk.CTkButton(mood_frame, text=mood, width=120, command=lambda m=mood: set_mood(m))
     btn.place(x=40 + (index % 3) * 180, y=70 + (index // 3) * 60)
