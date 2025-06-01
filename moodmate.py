@@ -184,6 +184,9 @@ def show_mood_chart(df):
     canvas.get_tk_widget().pack()
     canvas.draw()
 
+# Add Exit Button after mood chart (or at the very bottom)
+exit_button = ctk.CTkButton(scroll_frame, text="Exit", width=180, height=40, fg_color="red", command=app.destroy)
+exit_button.pack(pady=(10, 30))
 
 
 app.mainloop()
